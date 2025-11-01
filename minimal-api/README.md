@@ -44,7 +44,10 @@ comando para acessar o BD:<b> mysql -u root -p
 comando colocar nome database: USE minimal_api;
 comando para visualizar a tabela: SHOW TABLES;
 comando no terminal dentro do MySQL selecionar uma tabela: SELECT * FROM administradores;
-comando no termonal dentro do Mysql para mostrar a estrutura: desc Veiculos;
+comando no terminal dentro do Mysql para mostrar a estrutura: desc Veiculos;
+comando no terminal para exportar um banco de dados : mysqldump -u root -p minimal_api > minimal_api.dump.sql
+comando para restaura: mysql -u root -p  minimal_api_Test < minimal_api.dump.sql
+
 
 ### Para criar os dados no banco de dados (inseirir os dados no banco de dados )
 comando para criar: <b> dotnet ef migrations add SeedAdministrador
@@ -55,11 +58,32 @@ comando para atualizar banco de dados: <b> dotnet ef database update
 https://www.jwt.io/
 
 
+### Criar Solução para o projeto
 
+comando criar: <b> dotnet new sln 
+comando para adicionar a solução: <b> dotnet sln add API/minimal-api.csproj
 
+### Mostrar o body face
+dotnet new list
 
+## Criar um projeto de teste
 
+comando para criar projeto dentro da pasta 'Test':<b> dotnet new mstest -o Test
+comando para referenciar a pasta API:
+- Entrar na pasta comando: cd Test
+- Adicionar a referencia comando: dotnet add reference ../API/minimal-api.csproj
 
+### Realizar Build
+comando : dotnet build
+
+### Abrir um novo vscode 
+comando: code Test
+
+### Executar os testes
+comando: dotnet test
+ 
+ ## Instalar InMemory 
+ comando : dotnet add package Microsoft.EntityFrameworkCore.InMemory
 
 
 
